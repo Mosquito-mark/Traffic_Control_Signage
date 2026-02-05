@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City of Edmonton | Traffic Signage Inventory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class', // Enable class-based dark mode
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Open Sans', 'sans-serif'],
+            },
+            colors: {
+              'brand-blue': '#005087',
+              'brand-blue-dark': '#193A5A',
+              'brand-blue-light': '#0081BC',
+              'brand-green': '#6AC07A',
+              'brand-green-dark': '#329D62',
+              'brand-yellow': '#F9DA45',
+              'brand-red': '#E01F27',
+            },
+            typography: ({ theme }) => ({
+              DEFAULT: {
+                css: {
+                  '--tw-prose-body': theme('colors.gray[600]'),
+                  '--tw-prose-headings': theme('colors.gray[900]'),
+                  '--tw-prose-lead': theme('colors.gray[500]'),
+                  '--tw-prose-links': theme('colors.brand-blue'),
+                  '--tw-prose-bold': theme('colors.gray[900]'),
+                  '--tw-prose-counters': theme('colors.gray[500]'),
+                  '--tw-prose-bullets': theme('colors.gray[300]'),
+                  '--tw-prose-hr': theme('colors.gray[200]'),
+                  '--tw-prose-quotes': theme('colors.gray[900]'),
+                  '--tw-prose-quote-borders': theme('colors.gray[200]'),
+                  '--tw-prose-captions': theme('colors.gray[500]'),
+                  '--tw-prose-code': theme('colors.gray[900]'),
+                  '--tw-prose-pre-code': theme('colors.gray[200]'),
+                  '--tw-prose-pre-bg': theme('colors.gray[800]'),
+                  '--tw-prose-th-borders': theme('colors.gray[300]'),
+                  '--tw-prose-td-borders': theme('colors.gray[200]'),
+                  // Dark mode prose overrides
+                  '--tw-prose-invert-body': theme('colors.gray[300]'),
+                  '--tw-prose-invert-headings': theme('colors.gray[100]'),
+                  '--tw-prose-invert-lead': theme('colors.gray[400]'),
+                  '--tw-prose-invert-links': theme('colors.brand-blue-light'),
+                  '--tw-prose-invert-bold': theme('colors.gray[100]'),
+                  '--tw-prose-invert-counters': theme('colors.gray[400]'),
+                  '--tw-prose-invert-bullets': theme('colors.gray[600]'),
+                  '--tw-prose-invert-hr': theme('colors.gray[700]'),
+                  '--tw-prose-invert-quotes': theme('colors.gray[100]'),
+                  '--tw-prose-invert-quote-borders': theme('colors.gray[700]'),
+                  '--tw-prose-invert-captions': theme('colors.gray[400]'),
+                  '--tw-prose-invert-code': theme('colors.gray[100]'),
+                  '--tw-prose-invert-pre-code': theme('colors.gray[300]'),
+                  '--tw-prose-invert-pre-bg': theme('colors.gray[900]'),
+                  '--tw-prose-invert-th-borders': theme('colors.gray[600]'),
+                  '--tw-prose-invert-td-borders': theme('colors.gray[700]'),
+                },
+              },
+            }),
+          }
+        }
+      }
+    </script>
+    <style>
+      @media print {
+        /* Generic reset for printing from dark mode */
+        .dark body, .dark [class*="bg-"] {
+            background-color: #ffffff !important;
+        }
+        .dark [class*="text-"] {
+            color: #111827 !important; /* Default to dark text */
+        }
+        .dark .text-brand-blue-light {
+             color: #005087 !important; /* Ensure brand links are correct color */
+        }
+        .dark [class*="border-"] {
+            border-color: #e5e7eb !important; /* Default to light gray border */
+        }
+        .dark [class*="divide-"] > :not([hidden]) ~ :not([hidden]) {
+            border-color: #e5e7eb !important; /* Default to light gray divider */
+        }
+        
+        /* Remove shadows for a cleaner print */
+        .shadow, .shadow-lg, .shadow-md {
+            box-shadow: none !important;
+        }
+
+        /* Reset Tailwind CSS Typography (Prose) plugin variables for dark mode printing */
+        /* This ensures that AI-generated summaries are readable when printed from dark mode */
+        .dark .dark\:prose-invert {
+          --tw-prose-body: #4b5563; /* gray-600 */
+          --tw-prose-headings: #111827; /* gray-900 */
+          --tw-prose-lead: #6b7280; /* gray-500 */
+          --tw-prose-links: #005087; /* brand-blue */
+          --tw-prose-bold: #111827; /* gray-900 */
+          --tw-prose-counters: #6b7280; /* gray-500 */
+          --tw-prose-bullets: #d1d5db; /* gray-300 */
+          --tw-prose-hr: #e5e7eb; /* gray-200 */
+          --tw-prose-quotes: #111827; /* gray-900 */
+          --tw-prose-quote-borders: #e5e7eb; /* gray-200 */
+          --tw-prose-captions: #6b7280; /* gray-500 */
+          --tw-prose-code: #111827; /* gray-900 */
+          --tw-prose-pre-code: #1f2937; /* gray-800 */
+          --tw-prose-pre-bg: #f3f4f6; /* gray-100 */
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-100 font-sans text-gray-800 transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

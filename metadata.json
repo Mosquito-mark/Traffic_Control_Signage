@@ -1,0 +1,7 @@
+{
+  "name": "Traffic Control Signage Inventory",
+  "description": "An application for Traffic Control Field technicians to manage deployed traffic control signage for events and projects. It calculates costs based on inventory prices and generates invoices.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
